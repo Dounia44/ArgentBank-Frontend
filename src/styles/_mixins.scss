@@ -1,0 +1,13 @@
+// Mixin breakpoint
+
+@mixin tablet {
+  @media (min-width: 720px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 920px) {
+    @content;
+  }
+}

@@ -5,6 +5,8 @@ import {
   faCircleUser,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
+import Logo from "../../assets/images/argentBankLogo.png";
+import Logo2x from "../../assets/images/argentBankLogo@2x.png";
 
 function Header() {
   return (
@@ -12,7 +14,10 @@ function Header() {
       <Link className="main-nav__logo" to="/">
         <img
           className="main-nav__logo-image"
-          src="./img/argentBankLogo.png"
+          src={Logo}
+          srcSet={`${Logo} 1x, ${Logo2x} 2x`}
+          width={200}
+          height={54}
           alt="Argent Bank Logo"
         />
         <h1 className="sr-only">Argent Bank</h1>

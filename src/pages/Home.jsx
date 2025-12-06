@@ -4,6 +4,9 @@ import img800 from "../assets/images/bank-tree-800.webp";
 import img1200 from "../assets/images/bank-tree-1200.webp";
 import img1600 from "../assets/images/bank-tree-1600.webp";
 
+import features from "../data/Features";
+import Feature from "../components/Feature/Feature";
+
 function Home() {
   return (
     <>
@@ -17,6 +20,22 @@ function Home() {
         subtitles={["No fees.", "No minimum deposit.", "High interest rates."]}
         text="Open a savings account with Argent Bank today!"
       />
+
+      <section className="features">
+        <h2 className="sr-only">Features</h2>
+        {features.map((feature) => (
+          <Feature
+            key={feature.id}
+            src={feature.src}
+            srcSet={feature.srcSet}
+            width={feature.width}
+            height={feature.height}
+            alt={feature.alt}
+            title={feature.title}
+            text={feature.text}
+          />
+        ))}
+      </section>
     </>
   );
 }

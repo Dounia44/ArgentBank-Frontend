@@ -1,11 +1,12 @@
-import Hero from "../components/Hero/Hero";
-import img400 from "../assets/images/bank-tree-400.webp";
-import img800 from "../assets/images/bank-tree-800.webp";
-import img1200 from "../assets/images/bank-tree-1200.webp";
-import img1600 from "../assets/images/bank-tree-1600.webp";
+import img400 from "../../assets/images/bank-tree-400.webp";
+import img800 from "../../assets/images/bank-tree-800.webp";
+import img1200 from "../../assets/images/bank-tree-1200.webp";
+import img1600 from "../../assets/images/bank-tree-1600.webp";
 
-import features from "../data/Features";
-import Feature from "../components/Feature/Feature";
+import Hero from "../../components/Hero/Hero";
+
+import Feature from "../../components/Feature/Feature";
+import features from "../../data/Features";
 
 function Home() {
   return (

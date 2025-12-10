@@ -1,8 +1,17 @@
+import accounts from "../../data/Account";
+import Account from "../../components/Account/Account";
+
 function Profile() {
   return (
     <>
-      <h1>Profile</h1>
-      <p>coucou</p>
+      {accounts.map((account) => (
+        <Account
+          key={account.id}
+          title={account.title}
+          amount={account.amount}
+          description={account.description}
+        />
+      ))}
     </>
   );
 }

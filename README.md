@@ -1,16 +1,79 @@
-# React + Vite
+# Argent Bank Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Front-end de l’application bancaire **Argent Bank**, réalisé dans le cadre du parcours **Développeur Web – OpenClassrooms**.
 
-Currently, two official plugins are available:
+Ce projet consiste à développer une interface utilisateur complète et responsive avec **React**, et à la connecter à une API backend via des appels HTTP.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Fonctionnalités principales
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Authentification des utilisateurs
+- Tableau de bord avec affichage des comptes
+- Consultation des transactions
+- Mise à jour du profil
+- Gestion de l’état global avec **Redux**
+- Communication avec le backend via une API REST
+- Interface responsive (mobile + desktop)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technologies utilisées
+
+| Technologie       | Rôle                                          |
+| ----------------- | --------------------------------------------- |
+| **React**         | Construction de l’interface utilisateur       |
+| **Redux Toolkit** | Gestion de l’état global                      |
+| **React Router**  | Navigation entre les pages                    |
+| **Sass / SCSS**   | Styles modulaires                             |
+| **API REST**      | Communication avec le backend                 |
+| **Swagger**       | Documentation des endpoints API               |
+| **Node.js**       | Exécution du backend (fournie dans le projet) |
+
+---
+
+## Installation et lancement
+
+### 1. Cloner le projet
+
+```bash
+git clone https://github.com/votre-utilisateur/argent-bank-frontend.git
+```
+
+### 2. Installer les dépendances
+
+```bash
+npm install
+```
+
+### 3. Lancer le front-end
+
+```bash
+npm start
+```
+
+---
+
+## Connexion au backend
+
+Le front-end communique avec l’API backend via les endpoints fournis dans la documentation Swagger.
+
+Le backend doit être lancé séparément (dans le projet [ArgentBank-Backend](https://github.com/Dounia44/ArgentBank-Backend.git)).
+
+---
+
+## Compétences développées
+
+- Mise en place d’une architecture React modulaires
+- Création de composants accessibles et réutilisables
+- Gestion de l’état avec Redux
+- Consommation d’une API REST
+- Mise en place de routes avec React Router
+- Respect des bonnes pratiques : accessibilité, performance, organisation
+- Travail en mode Git (branches feature, commits conventionnels)
+
+---
+
+## Auteur
+
+Dounia Huber

@@ -45,9 +45,10 @@
   &__description {
     margin: 0;
   }
-}
-@include m.desktop {
-  .button-block {
-    width: 200px;
+
+  @include m.desktop {
+    .button-block {
+      width: 200px;
+    }
   }
 }

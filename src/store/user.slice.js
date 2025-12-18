@@ -26,7 +26,7 @@ export const updateUserProfile = createAsyncThunk(
 );
 
 const initialState = {
-  user: null,
+  currentUser: null,
   status: "idle",
   error: null,
 };
@@ -44,7 +44,7 @@ const userSlice = createSlice({
       })
       .addCase(getUserProfile.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.user = action.payload;
+        state.currentUser = action.payload;
       })
       .addCase(getUserProfile.rejected, (state, action) => {
         state.status = "failed";
@@ -66,7 +66,7 @@ const userSlice = createSlice({
       })
       .addCase(updateUserProfile.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.user = action.payload;
+        state.currentUser = action.payload;
       })
       .addCase(updateUserProfile.rejected, (state, action) => {
         state.status = "failed";

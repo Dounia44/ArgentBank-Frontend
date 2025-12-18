@@ -7,11 +7,12 @@ import Profile from "./pages/Profile/Profile";
 
 const router = createBrowserRouter([
   {
+    path: "/",
     element: <Layout />,
     children: [
-      { path: "/", element: <Home /> },
-      { path: "/login", element: <Login /> },
-      { path: "/profile", element: <Profile /> },
+      { index: true, element: <Home /> },
+      { path: "login", element: <Login /> },
+      { path: "profile", element: <Profile /> },
     ],
   },
 ]);

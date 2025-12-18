@@ -1,6 +1,6 @@
 import { BASE_URL } from "./config";
 
-export async function getUserProfile(token) {
+export async function getUserProfileApi(token) {
   const response = await fetch(`${BASE_URL}/user/profile`, {
     method: "GET",
     headers: {
@@ -20,7 +20,7 @@ export async function getUserProfile(token) {
   return data.body;
 }
 
-export async function updateUserProfile(token, { userName }) {
+export async function updateUserProfileApi(token, { userName }) {
   const response = await fetch(`${BASE_URL}/user/profile`, {
     method: "PUT",
     headers: {

@@ -1,6 +1,6 @@
 import { BASE_URL } from "./config";
 
-export async function login({ email, password }) {
+export async function loginApi({ email, password }) {
   const response = await fetch(`${BASE_URL}/user/login`, {
     method: "POST",
     headers: {
@@ -18,7 +18,7 @@ export async function login({ email, password }) {
   return data.body.token;
 }
 
-export async function signup({
+export async function signupApi({
   email,
   password,
   firstName,

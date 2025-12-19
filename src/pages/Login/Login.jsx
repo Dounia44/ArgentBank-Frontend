@@ -21,6 +21,8 @@ function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const token = useSelector((state) => state.auth.token);
+  const status = useSelector((state) => state.auth.status);
+  const error = useSelector((state) => state.auth.error);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -62,6 +64,7 @@ function Login() {
         <Button className="button-block" type="submit">
           Sign In
         </Button>
+        {status === "failed" && <p>{error}</p>}
       </form>
     </section>
   );

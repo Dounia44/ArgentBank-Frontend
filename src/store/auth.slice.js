@@ -58,6 +58,11 @@ const authSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.token = action.payload;
+        if (action.meta.arg.remember) {
+          localStorage.setItem("token", action.payload);
+        } else {
+          sessionStorage.setItem("token", action.payload);
+        }
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.status = "failed";

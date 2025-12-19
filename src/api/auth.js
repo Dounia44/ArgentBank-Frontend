@@ -12,7 +12,7 @@ export async function loginApi({ email, password }) {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data?.message || "Erreur lors de la connexion");
+    throw data;
   }
 
   return data.body.token;
@@ -34,7 +34,7 @@ export async function signupApi({
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data?.message || "Erreur lors de l'inscription");
+    throw data;
   }
 
   return data.body;

@@ -12,9 +12,7 @@ export async function getUserProfileApi(token) {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(
-      data?.message || "Erreur lors de la récupération du profil"
-    );
+    throw data;
   }
 
   return data.body;
@@ -33,7 +31,7 @@ export async function updateUserProfileApi(token, { userName }) {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data?.message || "Erreur lors de la mise à jour du profil");
+    throw data;
   }
 
   return data.body;

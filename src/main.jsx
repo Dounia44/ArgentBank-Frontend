@@ -5,15 +5,14 @@ import { Provider } from "react-redux";
 import "./styles/main.scss";
 import App from "./App.jsx";
 import { store } from "./store/store.js";
-import { setToken } from "./store/auth.slice.js";
-
-const token = localStorage.getItem("token");
-if (token) store.dispatch(setToken(token));
+import AppInit from "./components/AppInit/AppInit.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
-      <App />
+      <AppInit>
+        <App />
+      </AppInit>
     </Provider>
   </StrictMode>
 );

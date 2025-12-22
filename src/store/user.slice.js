@@ -1,13 +1,17 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getUserProfileApi, updateUserProfileApi } from "../api/user.js";
+import { logout } from "../store/auth.slice";
 
 export const getUserProfile = createAsyncThunk(
   "user/getUserProfile",
-  async (token, { rejectWithValue }) => {
+  async (token, { dispatch, rejectWithValue }) => {
     try {
       const user = await getUserProfileApi(token);
       return user;
     } catch (error) {
+      if (error.status === 401) {
+        dispatch(logout());
+      }
       return rejectWithValue({ status: error.status, message: error.message });
     }
   }
@@ -15,11 +19,14 @@ export const getUserProfile = createAsyncThunk(
 
 export const updateUserProfile = createAsyncThunk(
   "user/updateUserProfile",
-  async ({ token, userData }, { rejectWithValue }) => {
+  async ({ token, userData }, { dispatch, rejectWithValue }) => {
     try {
       const updatedUser = await updateUserProfileApi(token, userData);
       return updatedUser;
     } catch (error) {
+      if (error.status === 401) {
+        dispatch(logout());
+      }
       return rejectWithValue({ status: error.status, message: error.message });
     }
   }
@@ -49,9 +56,9 @@ const userSlice = createSlice({
       .addCase(getUserProfile.rejected, (state, action) => {
         state.status = "failed";
 
-        // if (action.payload?.status === 401) {
-        //   return;
-        // }
+        if (action.payload?.status === 401) {
+          return;
+        }
 
         if (action.payload?.status === 500) {
           state.error = "Something went wrong. Please try again later.";
@@ -71,9 +78,9 @@ const userSlice = createSlice({
       .addCase(updateUserProfile.rejected, (state, action) => {
         state.status = "failed";
 
-        // if (action.payload?.status === 401) {
-        //   return;
-        // }
+        if (action.payload?.status === 401) {
+          return;
+        }
 
         if (action.payload?.status === 400) {
           state.error = "Invalid user name";
@@ -82,6 +89,12 @@ const userSlice = createSlice({
         } else {
           state.error = action.payload?.message || action.error.message;
         }
+      })
+      // logout
+      .addCase(logout, (state) => {
+        state.currentUser = null;
+        state.error = null;
+        state.status = "idle";
       });
   },
 });

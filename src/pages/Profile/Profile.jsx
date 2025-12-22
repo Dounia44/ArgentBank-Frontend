@@ -1,13 +1,24 @@
 import accounts from "../../data/Account";
 import Account from "../../components/Account/Account";
-import Profileheader from "../../components/profileheader/profileheader";
+import Profileheader from "../../components/Profileheader/Profileheader";
+import { useSelector } from "react-redux";
 
 function Profile() {
-  const firstName = "Tony";
-  const lastName = "Jarvis";
+  const currentUser = useSelector((state) => state.user.currentUser);
+
+  if (!currentUser) {
+    return null;
+  }
+
+  const { firstName, lastName, userName } = currentUser;
+
   return (
     <>
-      <Profileheader firstName={firstName} lastName={lastName} />
+      <Profileheader
+        userName={userName}
+        firstName={firstName}
+        lastName={lastName}
+      />
       {accounts.map((account) => (
         <Account
           key={account.id}

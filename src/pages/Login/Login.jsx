@@ -64,6 +64,7 @@ function Login() {
         <Button className="button-block" type="submit">
           Sign In
         </Button>
+        {status === "loading" && <p>Connecting…</p>}
         {status === "failed" && <p>{error}</p>}
       </form>
     </section>

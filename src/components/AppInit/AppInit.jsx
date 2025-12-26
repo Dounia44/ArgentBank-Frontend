@@ -1,4 +1,4 @@
-import { Children, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setToken } from "../../store/auth.slice";
 import { getUserProfile } from "../../store/user.slice";
